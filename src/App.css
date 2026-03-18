@@ -1,0 +1,22 @@
+:root {
+  --nav-h: 90px;
+}
+
+/* full-width app */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* content area under fixed navbar */
+.app-shell {
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+}
+
+.page-pad {
+  padding: 2rem;
+  color: #e6e1dc;
+}

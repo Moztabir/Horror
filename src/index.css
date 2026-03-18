@@ -1,0 +1,141 @@
+/* =========================
+   GLOBAL ROOT SETTINGS
+========================= */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Force dark vibe */
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #000;
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   HTML / BODY BEHAVIOR
+========================= */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* Allow scrolling but prevent sideways drift */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar but keep scrolling */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* 🔴 YOUR BLOODY RED BACKGROUND — UNCHANGED */
+  background: radial-gradient(
+    circle at top,
+    #4b0000 0%,
+    #1a0000 45%,
+    #000000 100%
+  );
+
+  -ms-overflow-style: none;   /* IE / old Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* =========================
+   ROOT APP CONTAINER
+========================= */
+#root {
+  min-height: 100%;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+a {
+  font-weight: 500;
+  color: #e6e1dc;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+
+  background-color: #1a1a1a;
+  color: #e6e1dc;
+
+  cursor: pointer;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+button:hover {
+  border-color: rgba(180, 0, 0, 0.6);
+  box-shadow: 0 0 12px rgba(120, 0, 0, 0.35);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid rgba(180, 0, 0, 0.6);
+  outline-offset: 2px;
+}
+
+/* =========================
+   FORCE DARK MODE ALWAYS
+========================= */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #000;
+  }
+
+  body {
+    background: radial-gradient(
+      circle at top,
+      #4b0000 0%,
+      #1a0000 45%,
+      #000000 100%
+    );
+  }
+
+  button {
+    background-color: #1a1a1a;
+  }
+}

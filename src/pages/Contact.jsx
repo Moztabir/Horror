@@ -1,62 +1,75 @@
 import "./Contact.css";
+import Lauren from "../assets/profiles/Lauren.jpg";
+import Megan from "../assets/profiles/Megan.jpg";
+import Danielle from "../assets/profiles/Danielle.jpg";
+import Kylan from "../assets/profiles/Kylan.jpg";
+import Mo from "../assets/profiles/Mo.jpg";
+import Roger from "../assets/profiles/Roger.jpg";
+import Tomas from "../assets/profiles/Tomas.jpg";
+import Dimple from "../assets/profiles/Dimple.jpg";
+
+import Yael from "../assets/profiles/Yael.jpg";
+import Matteo from "../assets/profiles/Matteo.jpg";
+import Amelia from "../assets/profiles/Amelia.jpg";
+import Julia from "../assets/profiles/Julia.jpg";
+import Noah from "../assets/profiles/Noah.jpg";
+import Stanlee from "../assets/profiles/Stanlee.jpg";
 
 const gameTeam = [
-  { name: "Ya’el Lederman", role: "Narrative Lead / Audio Designer", title: "Game Team" },
-  { name: "Carter Sentance", role: "3D Artist / Designer", title: "Game Team" },
-  { name: "Julia Book", role: "Audio Lead / Narrative Team", title: "Game Team" },
-  { name: "Abdullah Sheikh", role: "3D Artist / Programmer", title: "Game Team" },
-  { name: "Ekraj Singh Narang", role: "3D Artist / Audio Designer", title: "Game Team" },
-  { name: "Cadence Delia", role: "3D Artist / Programmer", title: "Game Team" },
-  { name: "Noah Serpa", role: "Art Lead / Programmer", title: "Game Team" },
-  { name: "Grayson Lambert", role: "3D Artist / Programmer", title: "Game Team" },
-  { name: "Amelia Gordon", role: "Character Artist / Concept Artist", title: "Game Team" },
-  { name: "Stanlee Castaneda", role: "3D Artist / Programmer", title: "Game Team" },
-  { name: "Matteo Monteleone", role: "Tech Lead / Design Lead", title: "Game Team" }
+  { name: "Ya’el Lederman", role: "Narrative Lead / Audio Designer", title: "Game Team", img: Yael },
+  { name: "Carter Sentance", role: "3D Artist / Designer", title: "Game Team", img: null },
+  { name: "Julia Book", role: "Audio Lead / Narrative Team", title: "Game Team", img: Julia },
+  { name: "Abdullah Sheikh", role: "3D Artist / Programmer", title: "Game Team", img: null },
+  { name: "Ekraj Singh Narang", role: "3D Artist / Audio Designer", title: "Game Team", img: null },
+  { name: "Cadence Delia", role: "3D Artist / Programmer", title: "Game Team", img: null },
+  { name: "Noah Serpa", role: "Art Lead / Programmer", title: "Game Team", img: Noah },
+  { name: "Grayson Lambert", role: "3D Artist / Programmer", title: "Game Team", img: null },
+  { name: "Amelia Gordon", role: "Character Artist / Concept Artist", title: "Game Team", img: Amelia },
+  { name: "Stanlee Castaneda", role: "3D Artist / Programmer", title: "Game Team", img: Stanlee },
+  { name: "Matteo Monteleone", role: "Tech Lead / Design Lead", title: "Game Team", img: Matteo }
 ];
 
 const webTeam = [
-  { name: "Lauren Berlettano", role: "Design, Marketing, & Management", title: "Web Team" },
-  { name: "Dimple Mistry", role: "Design & Coding", title: "Web Team" },
-  { name: "Tomas Galvez", role: "Design & Management", title: "Web Team" },
-  { name: "Danielle Clapiz", role: "Design & Coding", title: "Web Team" },
-  { name: "Kylie Schipper", role: "Design & Marketing", title: "Web Team" },
-  { name: "Roger Li", role: "Coding", title: "Web Team" },
-  { name: "Megan Smith", role: "Design & Marketing", title: "Web Team" },
-  { name: "Moztabir Islam", role: "Coding", title: "Web Team" },
-  { name: "Kylan Joint", role: "Video Production & Marketing", title: "Web Team" },
+  { name: "Lauren Berlettano", role: "Design, Marketing, & Management", title: "Web Team", img: Lauren },
+  { name: "Dimple Mistry", role: "Design & Coding", title: "Web Team", img: Dimple },
+  { name: "Tomas Galvez", role: "Design & Management", title: "Web Team", img: Tomas },
+  { name: "Danielle Clapiz", role: "Design & Coding", title: "Web Team", img: Danielle },
+  { name: "Kylie Schipper", role: "Design & Marketing", title: "Web Team", img: null },
+  { name: "Roger Li", role: "Coding", title: "Web Team", img: Roger },
+  { name: "Megan Smith", role: "Design & Marketing", title: "Web Team", img: Megan },
+  { name: "Moztabir Islam", role: "Coding", title: "Web Team", img: Mo },
+  { name: "Kylan Joint", role: "Video Production & Marketing", title: "Web Team", img: Kylan },
 ];
 
-function PhotoSlot({ name }) {
-  const initials = name
-    .split(" ")
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join("");
-
+function PhotoSlot({ img, name }) {
   return (
-    <div className="contact-photo-slot" aria-label={`${name} profile placeholder`}>
-      <div className="contact-photo-inner">{initials}</div>
-      <div className="contact-photo-caption">PHOTO</div>
+    <div className="contact-photo-slot">
+      <div className="contact-photo-inner">
+        {img && (
+          <img
+            src={img}
+            alt={name}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        )}
+      </div>
     </div>
   );
 }
 
-function MemberCard({ name, role, title }) {
+function MemberCard({ name, role, title, img }) {
   return (
     <article className="member-card">
-      <PhotoSlot name={name} />
-
+      <PhotoSlot img={img} name={name} />
       <div className="member-info">
         <div className="member-row">
           <span className="member-label">Name</span>
           <div className="member-value member-name">{name}</div>
         </div>
-
         <div className="member-row">
           <span className="member-label">Role</span>
           <div className="member-value member-role">{role}</div>
         </div>
-
         <div className="member-row">
           <span className="member-label">Division</span>
           <div className="member-value member-division">{title}</div>
@@ -94,7 +107,7 @@ export default function Contact() {
             <span className="contact-disclaimer-label">Notice:</span>
             <span className="contact-disclaimer-text">
               This page contains the listed contributors behind the game and website
-              presentation. Designed in an archived patient-record style.
+              presentation. Designed in a haunted dossier style.
             </span>
           </div>
 

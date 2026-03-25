@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import TransitionProvider from "./components/TransitionProvider";
 import BloodDrips from "./components/BloodDrips";
@@ -6,6 +7,7 @@ import BackgroundAudio from "./components/BackgroundAudio";
 import PageTransition from "./components/PageTransition";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+
 import SecretTwo from "./pages/Secret-2";
 
 import { SecretUnlockProvider } from "./components/SecretUnlockContext";
@@ -23,7 +25,7 @@ import "./App.css";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/~rl20wa/IASC">
+    <BrowserRouter basename="/Horror">
       <TransitionProvider>
         <ScrollToTop />
 
